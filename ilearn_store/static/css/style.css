@@ -98,3 +98,60 @@ blockquote {
         line-height: 1.25;
     }
 }
+
+
+/*--- Header and Navbar---*/
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+.navbar {
+    background-color: #fff;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.nav.dropdown {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    text-align: left;
+    -webkit-transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
+    transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
+    transition: box-shadow 0.1s ease, width 0.1s ease;
+    transition: box-shadow 0.1s ease, width 0.1s ease, -webkit-box-shadow 0.1s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.upload_btn {
+    display: none;
+}
+
+.hs_content {
+    padding: 0px 15px 0px 20px;
+    float: left;
+    width: 70%;
+    position: relative;
+}
+
+.header_right ul li:nth-child(2) {
+    display: none !important;
+}
+
+.option_links {
+    padding: 10px 3px !important;
+    font-size: 18px !important;
+}
+
+.menu.dropdown_mn {
+    margin-right: -43px !important;
+}
+
+.menu.dropdown_ms {
+    margin-right: -82px !important;
+}

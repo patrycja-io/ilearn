@@ -37,7 +37,7 @@
             <li>
                 <a href="{% url 'basket' %}" class="text-danger font-weight-bold nav-link">
                     <i class="uil uil-shopping-cart "></i>
-                    <strong class="my-0 ">
+                    <strong class="my-0 ">{{ basketItems}}
 		                                    {% if total %}
 		                                        ${{ total|floatformat:2 }}
 		                                    {% else %}

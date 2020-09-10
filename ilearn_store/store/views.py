@@ -24,10 +24,12 @@ def checkout(request):
 		customer = request.user.customer
 		order, created = Order.objects.get_or_create(customer=customer, complete=False)
 		items = order.orderitem_set.all()
+		basketItems = order.get_basket_items
 	else:
 		#Create empty cart for now for non-logged in user
 		items = []
 		order = {'get_basket_total':0, 'get_basket_items':0}
+		basketItems = order.get_basket_items
 
 	context = {'items':items, 'order':order}
 	return render(request, 'store/checkout.html', context)
@@ -38,15 +40,15 @@ def store(request):
 		customer = request.user.customer
 		order, created = Order.objects.get_or_create(customer=customer, complete=False)
 		items = order.orderitem_set.all()
-		cartItems = order.get_cart_items
+		basketItems = order.get_basket_items
 	else:
 		#Create empty cart for now for non-logged in user
 		items = []
 		order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
-		cartItems = order['get_basket_items']
+		basketItems = order['get_basket_items']
 
 	products = Product.objects.all()
-	context = {'products':products, 'basketItems':cartItems}
+	context = {'products':products, 'basketItems':basketItems}
 	return render(request, 'store/store.html', context)
 
 def updateItem(request):

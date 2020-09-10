@@ -122,16 +122,15 @@
                     </div>
 
                     <div class="order_dt_section">
-
                         <div class="order_title">
 
-                            <h4></h4>
+                            <h4>{{order.get_basket_items}}</h4>
                             <div class="order_price"></div>
                         </div>
 
                         <div class="order_title">
                             <h2>Total</h2>
-                            <div class="order_price_">£</div>
+                            <div class="order_price_">£{{order.get_basket_total|floatformat:2}}</div>
                         </div>
                     </div>
                 </div>

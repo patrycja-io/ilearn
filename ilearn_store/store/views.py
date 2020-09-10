@@ -11,7 +11,7 @@ def basket(request):
 	else:
 		#Create empty cart for now for non-logged in user
 		items = []
-		order = {'get_cart_total':0, 'get_cart_items':0}
+		order = {'get_basket_total':0, 'get_basket_items':0}
 
 	context = {'items':items, 'order':order}
 	return render(request, 'store/basket.html', context)
@@ -24,7 +24,7 @@ def checkout(request):
 	else:
 		#Create empty cart for now for non-logged in user
 		items = []
-		order = {'get_cart_total':0, 'get_cart_items':0}
+		order = {'get_basket_total':0, 'get_basket_items':0}
 
 	context = {'items':items, 'order':order}
 	return render(request, 'store/checkout.html', context)

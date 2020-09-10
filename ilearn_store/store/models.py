@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Customer(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
-    email = models.CharField(max_length=200)
+    email = models.EmailField(max_length=254, null=True, blank=False )
    
 
     def __str__(self):
@@ -34,7 +34,7 @@ def imageURL(self):
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
-    date_ordered = models.DateTimeField(auto_now_add=True)
+    date_ordered = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=100, null=True)
 
@@ -44,14 +44,14 @@ class Order(models.Model):
 
 
 @property
-def get_cart_total(self):
+def get_basket_total(self):
     orderitems = self.orderitem_set.all()
     total = sum([item.get_total for item in orderitems])
     return total
 
 
 @property
-def get_cart_items(self):
+def get_basket_items(self):
     orderitems = self.orderitem_set.all()
     total = sum([item.quantity for item in orderitems])
     return total

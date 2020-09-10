@@ -57,17 +57,29 @@
                         </div>
                         <div class="summary">
                             <div class="order_title">
-                                <h2>Total</h2>
+                                <h6>Item</h6>
                                 <div class="order_price_">£</div>
                             </div>
-                            <a href="" class="checkout_btn">Checkout Now</a>
+                            <div class="order_title">
+                                <h6>Price</h6>
+                                <div class="order_price_">£</div>
+                            </div>
+                            <div class="order_title">
+                                <h6>Quantity</h6>
+                                <div class="order_price_">£</div>
+                            </div>
+                            <div class="order_title">
+                                <h6>Total</h6>
+                                <div class="order_price_">£</div>
+                            </div>
+                            <a href="{% url 'checkout' %}" class="checkout_btn">Checkout Now</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="sign_form">
                     <p class="lead mb-5">Your basket is empty.</p>
-                    <a href="" class="btn_back_red">
+                    <a href="{% url 'store' %}" class="btn_back_red">
                         <i class="fas fa-chevron-left"></i>
                         <span> Keep shopping </span>
                     </a>

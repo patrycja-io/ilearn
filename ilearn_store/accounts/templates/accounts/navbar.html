@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="top-category">
+        <div class="compact cate-dpdwn">
+            <div class="dropdown">
+                <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="option_links p-0" title="categories"><i class="uil uil-apps"></i></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a href="" class="dropdown-item">HTML & CSS</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="" class="dropdown-item">Javascript & Frameworks</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="" class="dropdown-item">PHP & Laravel</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="" class="dropdown-item">Python & Frameworks</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href=" class=" nav-link main-logo-link ">
+        <h1 class="logo-font text-dark my-0 "><strong>iLearn</strong></h1>
+    </a>
+
+
+
+
+    <div class="search_position d-none d-sm-none d-md-block ">
+        <form class="search-container " method="GET " action=" ">
+            <input id="search-box " type="text " class="search-box " name="q " />
+
+            <label for="search-box "><span class="glyphicon glyphicon-search search-icon "> <i class="uil uil-search-alt icon icon1 "></i></span></label>
+            <input type="submit " id="search-submit " />
+        </form>
+    </div>
+
+    <div class="header_right ">
+        <ul>
+            <li>
+                <a href=" " class=" ">
+                    <i class="uil uil-shopping-cart "></i>
+                    <strong class="my-0 ">
+		                                    {% if total %}
+		                                        ${{ total|floatformat:2 }}
+		                                    {% else %}
+		                                        £0.00
+		                                    {% endif %}
+		                    </strong>
+                </a>
+            </li>
+            <li>
+                <div class="dropdown ">
+                    <a href=" " role="button " class="upload_btn " data-toggle="dropdown " aria-haspopup="true " aria-expanded="true ">
+                            My
+							Profile</a>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuLink ">
+                        {% if request.user.is_authenticated %} {% if request.user.is_superuser %}
+                        <a href=" " class="dropdown-item ">Add New Course</a>
+                        <div class="dropdown-divider "></div>
+                        {% endif %}
+                        <a href=" " class="dropdown-item ">My Profile</a>
+                        <div class="dropdown-divider "></div>
+                        <a href=" " class="dropdown-item ">Logout</a> {% else %}
+                        <a href=" " class="dropdown-item ">Register</a>
+                        <div class="dropdown-divider "></div>
+                        <a href=" " class="dropdown-item ">Login</a> {% endif %}
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="night_mode_switch__btn d-noned-sm-none d-md-block ">
+
+                    <a href="# " id="night-mode " class="btn-night-mode night_mode_switch__btn ">
+                        <span class="btn-night-mode-switch ">
+					            <span class="uk-switch-button "></span>
+                        </span>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</nav>

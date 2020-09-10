@@ -1,4 +1,145 @@
 {% extends "store/base.html" %} {% load static %} {% block content %}
 
 
-<h3>checkout</h3>
+<div class="wrapper bg_top up">
+    <div class="top_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title125">
+                        <div class="titleleft">
+                            <div class="path">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="{% url 'about' %}">Home</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Checkout
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="title126">
+                        <h2>Checkout</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="checkout_bg">
+                        <div class="checkout_title">
+                            <h4>Billing Details</h4>
+                        </div>
+                        <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+
+                            <fieldset class="rounded px-3 mb-5">
+                                <legend class="fieldset-label  text-black px-2 w-auto">
+                                    <p><em>Details</em></p>
+                                </legend>
+                                <div id="user-info">
+                                    <div class="form-field">
+                                        <input required class="form-control" type="text" name="name" placeholder="Name..">
+                                    </div>
+                                    <div class="form-field">
+                                        <input required class="form-control" type="email" name="email" placeholder="Email..">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="rounded px-3 mb-5">
+                                <legend class="fieldset-label text-black px-2 w-auto">
+                                    <p><em>Billing Info</em></p>
+                                </legend>
+                                <div id="shipping-info">
+
+                                    <div class="form-field">
+                                        <input class="form-control" type="text" name="address" placeholder="Address..">
+                                    </div>
+                                    <div class="form-field">
+                                        <input class="form-control" type="text" name="city" placeholder="City..">
+                                    </div>
+                                    <div class="form-field">
+                                        <input class="form-control" type="text" name="state" placeholder="State..">
+                                    </div>
+                                    <div class="form-field">
+                                        <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+                                    </div>
+                                    <div class="form-field">
+                                        <input class="form-control" type="text" name="country" placeholder="Zip code..">
+                                    </div>
+                                </div>
+
+                    </div>
+                    </fieldset>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">
+                            Payment
+                        </legend>
+                        <!-- A Stripe card element  -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret" />
+                    </fieldset>
+                    <p class=" text-right mt-5 mb-2 small text-danger my-0">
+                        <span class="icon">
+                          <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card will be charged
+                          <strong>£</strong></span>
+                    </p>
+
+                    <div class="submit-button text-right mt-5 mb-2">
+                        <a href="" class="btn btn-outline-black rounded-0">
+                            <span class="icon">
+                          <i class="fas fa-chevron-left"></i>
+                        </span>
+                            <span class="font-weight-bold pt-3">Adjust Basket</span>
+                        </a>
+                        <button id="submit-button" class="checkout_btn_stripe">
+                        <i class="uil uil-lock-alt"></i>
+                        <span class="font-weight-bold">Complete Order</span>
+                      </button>
+                        <br>
+                        <hr>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="checkout_bg checkout_bg_right">
+                    <div class="checkout_title">
+                        <h4>Order Summary </h4>
+                    </div>
+
+                    <div class="order_dt_section">
+
+                        <div class="order_title">
+
+                            <h4></h4>
+                            <div class="order_price"></div>
+                        </div>
+
+                        <div class="order_title">
+                            <h2>Total</h2>
+                            <div class="order_price_">£</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
